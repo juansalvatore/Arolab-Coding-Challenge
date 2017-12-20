@@ -18,6 +18,7 @@ class TopBar extends Component {
 
   render() {
     const user = this.props.user
+    console.log('User:', this.props.user)
     return (
       <div>
         {/* Header (NAVBAR)  */}
@@ -54,8 +55,9 @@ class TopBar extends Component {
 function mapStateToProps({ user }) {
   // .weather because thats the property name used in the combine reducer to reference the payload returned from fetchWeather action
   // weather: state.weather (ES6 syntax)
-  console.log('User:', user)
-  return { user }
+  return {
+    user: user,
+  }
 }
 
 export default connect(mapStateToProps, { fetchUser })(TopBar)
