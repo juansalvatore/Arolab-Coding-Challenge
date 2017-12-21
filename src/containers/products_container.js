@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUser } from '../actions/index'
-import { fetchProducts } from '../actions/index'
+import { fetchProducts, redeemNow, addPoints } from '../actions/index'
 
 class Products extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Products extends Component {
                   <span className="price">{product.cost}</span>
                   <img className="goldIcon" src="../../assets/icons/gold.svg" />
                 </div>
-                <a href="#!">
+                <a href="#!" onClick={() => this.props.redeemNow(product._id)}>
                   <div className="redeemButton">
                     <span>Redeem now</span>
                   </div>
@@ -70,6 +70,7 @@ class Products extends Component {
   lowestToHighest = () => {
     this.setState({
       products: _.sortByOrder(this.state.products, 'cost', 'asc'),
+
       buttonState: 1,
     })
   }
@@ -133,6 +134,9 @@ class Products extends Component {
             >
               <span>Highest price</span>
             </a>
+            <a href="#!" onClick={() => this.props.addPoints()}>
+              ADD POINTS
+            </a>
 
             {/* @if(isset($_GET['page']))
             @if($_GET['page'] > 1)
@@ -167,4 +171,6 @@ function mapStateToProps({ user, products }) {
 export default connect(mapStateToProps, {
   fetchProducts,
   fetchUser,
+  redeemNow,
+  addPoints,
 })(Products)

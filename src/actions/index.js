@@ -32,3 +32,57 @@ export function fetchProducts() {
     payload: request,
   }
 }
+
+export function redeemNow(productId) {
+  var request = new XMLHttpRequest()
+
+  request.open('POST', 'https://aerolab-challenge.now.sh/redeem')
+
+  request.setRequestHeader('Content-Type', 'application/json')
+  request.setRequestHeader('Accept', 'application/json')
+  request.setRequestHeader(
+    'Authorization',
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTBkOTk4MTUyZGQ5NjAwN2I2ZWIyYTQiLCJpYXQiOjE1MTA4NDA3MDV9.-XHsjWBC0i1u6zyo00TUIHVLCKxx2mvFcW9GLB_kGU0'
+  )
+
+  request.onreadystatechange = function() {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status)
+      console.log('Headers:', this.getAllResponseHeaders())
+      console.log('Body:', this.responseText)
+    }
+  }
+
+  var body = {
+    productId: productId,
+  }
+
+  request.send(JSON.stringify(body))
+}
+
+export function addPoints() {
+  var request = new XMLHttpRequest()
+
+  request.open('POST', 'https://aerolab-challenge.now.sh/user/points')
+
+  request.setRequestHeader('Content-Type', 'application/json')
+  request.setRequestHeader('Accept', 'application/json')
+  request.setRequestHeader(
+    'Authorization',
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTBkOTk4MTUyZGQ5NjAwN2I2ZWIyYTQiLCJpYXQiOjE1MTA4NDA3MDV9.-XHsjWBC0i1u6zyo00TUIHVLCKxx2mvFcW9GLB_kGU0'
+  )
+
+  request.onreadystatechange = function() {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status)
+      console.log('Headers:', this.getAllResponseHeaders())
+      console.log('Body:', this.responseText)
+    }
+  }
+
+  var body = {
+    amount: 1000,
+  }
+
+  request.send(JSON.stringify(body))
+}
