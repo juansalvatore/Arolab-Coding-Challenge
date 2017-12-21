@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
 import { fetchUser } from '../actions/index'
 import { fetchProducts, redeemNow, addPoints } from '../actions/index'
 
@@ -30,7 +31,17 @@ class Products extends Component {
                   <span className="price">{product.cost}</span>
                   <img className="goldIcon" src="../../assets/icons/gold.svg" />
                 </div>
-                <a href="#!" onClick={() => this.props.redeemNow(product._id)}>
+                <a
+                  href="#!"
+                  onClick={() => {
+                    const app = this
+                    setTimeout(function() {
+                      app.props.fetchProducts()
+                      app.props.fetchUser()
+                    }, 500)
+                    this.props.redeemNow(product._id)
+                  }}
+                >
                   <div className="redeemButton">
                     <span>Redeem now</span>
                   </div>
@@ -59,6 +70,8 @@ class Products extends Component {
       )
     })
   }
+
+  redeem = () => {}
 
   mostRecent = () => {
     this.props.fetchProducts()
@@ -89,6 +102,9 @@ class Products extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ products: nextProps.products })
+    this.state.buttonState == 0 ? '' : ''
+    this.state.buttonState == 1 ? this.lowestToHighest() : ''
+    this.state.buttonState == 2 ? this.highestToLowest() : ''
   }
 
   render() {
@@ -134,7 +150,17 @@ class Products extends Component {
             >
               <span>Highest price</span>
             </a>
-            <a href="#!" onClick={() => this.props.addPoints()}>
+            <a
+              href="#!"
+              onClick={() => {
+                const app = this
+                setTimeout(function() {
+                  app.props.fetchProducts()
+                  app.props.fetchUser()
+                }, 500)
+                this.props.addPoints()
+              }}
+            >
               ADD POINTS
             </a>
 

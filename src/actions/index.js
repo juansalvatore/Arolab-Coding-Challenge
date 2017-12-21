@@ -58,6 +58,11 @@ export function redeemNow(productId) {
   }
 
   request.send(JSON.stringify(body))
+
+  return {
+    type: 'REDEEM_NOW',
+    payload: request,
+  }
 }
 
 export function addPoints() {
@@ -85,4 +90,8 @@ export function addPoints() {
   }
 
   request.send(JSON.stringify(body))
+  return {
+    type: 'ADD_POINTS',
+    payload: request,
+  }
 }

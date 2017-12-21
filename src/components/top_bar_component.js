@@ -10,9 +10,14 @@ class TopBar extends Component {
       user: {},
     }
   }
-
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      user: nextProps.user,
+    })
+  }
   render() {
-    const user = this.props.user
+    console.log('USER', this.state.user)
+    const user = this.state.user
     return (
       <div>
         {/* Header (NAVBAR)  */}
