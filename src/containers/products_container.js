@@ -12,6 +12,7 @@ class Products extends Component {
     this.state = {
       user: {},
       products: {},
+      buttonState: 0,
     }
   }
 
@@ -29,7 +30,7 @@ class Products extends Component {
                   <span className="price">{product.cost}</span>
                   <img className="goldIcon" src="../../assets/icons/gold.svg" />
                 </div>
-                <a href="#">
+                <a href="#!">
                   <div className="redeemButton">
                     <span>Redeem now</span>
                   </div>
@@ -59,15 +60,24 @@ class Products extends Component {
     })
   }
 
+  mostRecent = () => {
+    this.props.fetchProducts()
+    this.setState({
+      buttonState: 0,
+    })
+  }
+
   lowestToHighest = () => {
     this.setState({
       products: _.sortByOrder(this.state.products, 'cost', 'asc'),
+      buttonState: 1,
     })
   }
 
   highestToLowest = () => {
     this.setState({
       products: _.sortByOrder(this.state.products, 'cost', 'desc'),
+      buttonState: 2,
     })
   }
 
@@ -89,15 +99,23 @@ class Products extends Component {
             <span className="sortBy">Sort by:</span>
             <a
               id="mostRecent"
-              className="mostRecent activeButton"
+              className={
+                this.state.buttonState == 0
+                  ? 'mostRecent activeButton'
+                  : 'mostRecent'
+              }
               href="#!"
-              onClick={this.props.fetchProducts}
+              onClick={this.mostRecent}
             >
               <span>Most recent</span>
             </a>
             <a
               id="lowestPrice"
-              className="lowestPrice"
+              className={
+                this.state.buttonState == 1
+                  ? 'lowestPrice activeButton'
+                  : 'lowestPrice'
+              }
               href="#!"
               onClick={this.lowestToHighest}
             >
@@ -105,7 +123,11 @@ class Products extends Component {
             </a>
             <a
               id="highestPrice"
-              className="highestPrice"
+              className={
+                this.state.buttonState == 2
+                  ? 'highestPrice activeButton'
+                  : 'highestPrice'
+              }
               href="#!"
               onClick={this.highestToLowest}
             >
