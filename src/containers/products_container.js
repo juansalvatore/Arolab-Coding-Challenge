@@ -61,7 +61,13 @@ class Products extends Component {
 
   lowestToHighest = () => {
     this.setState({
-      products: {},
+      products: _.sortByOrder(this.state.products, 'cost', 'asc'),
+    })
+  }
+
+  highestToLowest = () => {
+    this.setState({
+      products: _.sortByOrder(this.state.products, 'cost', 'desc'),
     })
   }
 
@@ -84,7 +90,7 @@ class Products extends Component {
             <a
               id="mostRecent"
               className="mostRecent activeButton"
-              href="#"
+              href="#!"
               onClick={this.props.fetchProducts}
             >
               <span>Most recent</span>
@@ -92,12 +98,17 @@ class Products extends Component {
             <a
               id="lowestPrice"
               className="lowestPrice"
-              href="#"
+              href="#!"
               onClick={this.lowestToHighest}
             >
               <span>Lowest price</span>
             </a>
-            <a id="highestPrice" className="highestPrice" href="#">
+            <a
+              id="highestPrice"
+              className="highestPrice"
+              href="#!"
+              onClick={this.highestToLowest}
+            >
               <span>Highest price</span>
             </a>
 

@@ -32,13 +32,3 @@ export function fetchProducts() {
     payload: request,
   }
 }
-
-export function lowestToHighest(products) {
-  const request = products
-  console.log('ESTO LE PASE A LOWEST TO HIGHEST', request)
-
-  return {
-    type: FETCH_PRODUCTS,
-    payload: request,
-  }
-}
