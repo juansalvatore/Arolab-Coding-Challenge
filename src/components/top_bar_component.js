@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchUser } from '../actions/index'
 
 class TopBar extends Component {
   constructor(props) {
@@ -12,13 +11,8 @@ class TopBar extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchUser()
-  }
-
   render() {
     const user = this.props.user
-    console.log('User:', this.props.user)
     return (
       <div>
         {/* Header (NAVBAR)  */}
@@ -60,4 +54,4 @@ function mapStateToProps({ user }) {
   }
 }
 
-export default connect(mapStateToProps, { fetchUser })(TopBar)
+export default connect(mapStateToProps)(TopBar)
