@@ -13,7 +13,12 @@ class Products extends Component {
     this.state = {
       user: {},
       products: {},
+      // 0 if most recent is clicked
+      // 1 if lowest price is clicked
+      // 2 if highest price is clicked
       buttonState: 0,
+      // hamburguer button state
+      open: false,
     }
   }
 
@@ -35,10 +40,8 @@ class Products extends Component {
                   href="#!"
                   onClick={() => {
                     const app = this
-                    setTimeout(function() {
-                      app.props.fetchProducts()
-                      app.props.fetchUser()
-                    }, 500)
+                    this.props.fetchProducts()
+                    this.props.fetchUser()
                     this.props.redeemNow(product._id)
                   }}
                 >
@@ -107,11 +110,35 @@ class Products extends Component {
     this.state.buttonState == 2 ? this.highestToLowest() : ''
   }
 
+  toggleClass = () => {
+    const currentState = this.state.open
+    this.setState({ open: !currentState })
+  }
+
   render() {
     return (
       <div>
         <div className="buttonsContainer">
           <div className="buttonsExtension">
+            <div
+              className={
+                this.state.open
+                  ? 'menu-open hamburguerButton'
+                  : 'hamburguerButton'
+              }
+            >
+              <button
+                className="bt-menu"
+                title="Menu"
+                onClick={this.toggleClass}
+              >
+                <span className="hamburguer">
+                  <span className="bar bar-1" />
+                  <span className="bar bar-2" />
+                  <span className="bar bar-3" />
+                </span>
+              </button>
+            </div>
             <div className="divisorBar" />
             <span className="sortBy">Sort by:</span>
             <a
@@ -152,6 +179,7 @@ class Products extends Component {
             </a>
             <a
               href="#!"
+              className="addPoints"
               onClick={() => {
                 const app = this
                 setTimeout(function() {

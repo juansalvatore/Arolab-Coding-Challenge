@@ -351,3 +351,128 @@ h1
 .footer
   position: absolute
   top: 1300px
+
+// button style
+.hamburguerButton
+  display: none
+
+.bt-menu 
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  border: none
+  padding: 0
+  background: none
+  cursor: pointer
+  border-radius: 4px
+  width: 50px
+  height: 50px
+  -webkit-transition: 0.2s
+  transition: 0.2
+  &:hover, &:focus 
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1)
+  
+  &:active 
+    -webkit-transform: scale(0.9)
+    transform: scale(0.9)
+    outline: none
+  
+  &:focus 
+    outline: none
+  
+  .hamburguer 
+    width: 32px
+    height: 25px
+    -webkit-transition: 0.4s
+    transition: 0.4s
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    margin: auto
+    .bar 
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      margin: auto
+      width: 32px
+      height: 5px
+      background: #fd7d24
+      -webkit-transition: 0.2s
+      transition: 0.2s
+      outline: 1px solid transparent
+    
+    .bar-1 
+      -webkit-transform: rotate(0) translate3d(0, -10px, 0)
+      transform: rotate(0) translate3d(0, -10px, 0)
+    
+    .bar-3 
+      -webkit-transform: rotate(0) translate3d(0, 10px, 0)
+      transform: rotate(0) translate3d(0, 10px, 0)
+    
+
+.menu-open .bt-menu .hamburguer 
+  -webkit-transform: rotate(180deg)
+  transform: rotate(180deg)
+  .bar-1 
+    -webkit-transform: rotate(45deg) translate3d(0, 0, 0)
+    transform: rotate(45deg) translate3d(0, 0, 0)
+  
+  .bar-2 
+    opacity: 0
+  
+  .bar-3 
+    -webkit-transform: rotate(-45deg) translate3d(0, 0, 0)
+    transform: rotate(-45deg) translate3d(0, 0, 0)
+  
+
+
+
+
+
+// media queries
+$breakpoint-one: 1135px
+$breakpoint-two: 950px
+$breakpoint-three: 625px
+@media (max-width: $breakpoint-one) 
+  .productsDisplayBox
+    max-width: 880px
+
+@media (max-width: $breakpoint-two) 
+  .productsDisplayBox
+      max-width: 580px  
+  .hamburguerButton
+    display: block
+    margin-bottom: 20px
+  .mostRecent
+    display: none
+  .lowestPrice
+    display: none
+  .highestPrice
+    display: none
+  .addPoints
+    display: none
+  .sortBy
+    display: none
+  .divisorBar
+    display: none
+
+@media (max-width: $breakpoint-three) 
+  .productsDisplayBox
+    position: absolute
+    top: 672px
+    max-width: auto
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+  
