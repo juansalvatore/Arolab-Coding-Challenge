@@ -9,6 +9,11 @@ body
 
 a
   text-decoration: none
+  
+ul
+  list-style-type: none
+  padding: 0
+  margin: 0
 
 h1
   margin: 0
@@ -434,9 +439,47 @@ h1
     -webkit-transform: rotate(-45deg) translate3d(0, 0, 0)
     transform: rotate(-45deg) translate3d(0, 0, 0)
   
+// dropdown menue 
 
+.dropdownMenu
+  display: none !important
+    
+.open 
+  opacity: 1 !important
+  pointer-events: all !important
+  height: 150px !important
 
+.dropdownMenu
+  position: absolute
+  display: flex
+  width: 100%
+  top: 600px
+  justify-content: center
+  z-index: 19
+  opacity: 0
+  transition: all ease-in-out 300ms
+  pointer-events: none
+  height: 10px
+  overflow: hidden
+  
 
+.dropdownContainer
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 200px
+  background-color: rgba(255,255,255,0.8)
+  border-radius: 5px
+  border: 1px solid #d9d9d9
+  
+li 
+  margin-bottom: 15px
+  font-family: 'Source Sans Pro', sans-serif
+  a
+    color: #38393d
+
+  &:last-child
+    margin-bottom: 0
 
 
 // media queries
@@ -446,6 +489,7 @@ $breakpoint-three: 625px
 @media (max-width: $breakpoint-one) 
   .productsDisplayBox
     max-width: 880px
+  
 
 @media (max-width: $breakpoint-two) 
   .productsDisplayBox
@@ -465,6 +509,8 @@ $breakpoint-three: 625px
     display: none
   .divisorBar
     display: none
+  .dropdownMenu
+    display: flex !important
 
 @media (max-width: $breakpoint-three) 
   .productsDisplayBox
@@ -474,5 +520,4 @@ $breakpoint-three: 625px
     display: flex
     justify-content: center
     flex-direction: column
-
   

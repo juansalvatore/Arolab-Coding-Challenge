@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux'
 import { fetchUser } from '../actions/index'
 import { fetchProducts, redeemNow, addPoints } from '../actions/index'
 
+import BlueIcon from '../../assets/icons/BlueIcon.js'
+
 class Products extends Component {
   constructor(props) {
     super(props)
@@ -30,25 +32,32 @@ class Products extends Component {
         <div key={product._id}>
           <div id={product._id} className="productContainer">
             {!(user.points < product.cost) ? (
-              // <div className="blueCircle"><?php echo file_get_contents("BlueIcon.svg"); ?></div>
-              <div className="blueSection">
-                <div className="textAndIconContainer">
-                  <span className="price">{product.cost}</span>
-                  <img className="goldIcon" src="../../assets/icons/gold.svg" />
+              <div>
+                <div className="blueCircle">
+                  <BlueIcon />
                 </div>
-                <a
-                  href="#!"
-                  onClick={() => {
-                    const app = this
-                    this.props.fetchProducts()
-                    this.props.fetchUser()
-                    this.props.redeemNow(product._id)
-                  }}
-                >
-                  <div className="redeemButton">
-                    <span>Redeem now</span>
+                <div className="blueSection">
+                  <div className="textAndIconContainer">
+                    <span className="price">{product.cost}</span>
+                    <img
+                      className="goldIcon"
+                      src="../../assets/icons/gold.svg"
+                    />
                   </div>
-                </a>
+                  <a
+                    href="#!"
+                    onClick={() => {
+                      const app = this
+                      this.props.fetchProducts()
+                      this.props.fetchUser()
+                      this.props.redeemNow(product._id)
+                    }}
+                  >
+                    <div className="redeemButton">
+                      <span>Redeem now</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             ) : (
               <div className="missingToPrice">
@@ -118,6 +127,28 @@ class Products extends Component {
   render() {
     return (
       <div>
+        {/* dropdown menu */}
+        <div className={this.state.open ? 'dropdownMenu open' : 'dropdownMenu'}>
+          <div className="dropdownContainer">
+            <ul>
+              <li>
+                <a href="#!" onClick={this.mostRecent}>
+                  Most recent
+                </a>
+              </li>
+              <li>
+                <a href="#!" onClick={this.lowestToHighest}>
+                  Lowest price
+                </a>
+              </li>
+              <li>
+                <a href="#!" onClick={this.highestToLowest}>
+                  Highest price
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="buttonsContainer">
           <div className="buttonsExtension">
             <div
@@ -140,6 +171,7 @@ class Products extends Component {
               </button>
             </div>
             <div className="divisorBar" />
+
             <span className="sortBy">Sort by:</span>
             <a
               id="mostRecent"
@@ -207,6 +239,7 @@ class Products extends Component {
             <div className="buttonBottonDivisior" />
           </div>
         </div>
+
         <div className="productsCenter">
           <div className="productsDisplayBox">{this.displayProducts()}</div>
         </div>
