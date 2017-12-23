@@ -22,22 +22,22 @@ class Products extends Component {
       // hamburguer button state
       open: false,
       hover: false,
+      // reload after redeem
+      redeem: 0,
     }
   }
 
   onHoverIn = id => {
-    console.log(id)
     this.setState({ hover: id })
   }
 
   onHoverOut = id => {
-    console.log(id)
     this.setState({ hover: false })
   }
 
   displayProducts = () => {
     const user = this.props.user
-    console.log('products', this.state.products)
+
     return _.map(this.state.products, product => {
       return (
         <div key={product._id}>
@@ -72,8 +72,8 @@ class Products extends Component {
                     href="#!"
                     onClick={() => {
                       const app = this
-                      this.props.fetchProducts()
-                      this.props.fetchUser()
+                      // this.props.fetchProducts()
+                      // this.props.fetchUser()
                       this.props.redeemNow(product._id)
                     }}
                   >
@@ -132,13 +132,27 @@ class Products extends Component {
   componentDidMount() {
     this.props.fetchUser()
     this.props.fetchProducts()
+    this.setState({
+      reload: false,
+    })
+  }
+  reload() {
+    this.props.fetchProducts()
+    this.props.fetchUser()
   }
 
   componentWillReceiveProps(nextProps) {
+    const obj = { message: "You've redeem the product successfully" }
     this.setState({ products: nextProps.products })
     this.state.buttonState == 0 ? '' : ''
     this.state.buttonState == 1 ? this.lowestToHighest() : ''
     this.state.buttonState == 2 ? this.highestToLowest() : ''
+    this.setState({ redeem: nextProps.redeem.length })
+    console.log(
+      'did message come?',
+      nextProps.redeem.length > this.state.redeem
+    )
+    nextProps.redeem.length > this.state.redeem ? this.reload() : null
   }
 
   toggleClass = () => {
@@ -270,10 +284,11 @@ class Products extends Component {
   }
 }
 
-function mapStateToProps({ user, products }) {
+function mapStateToProps({ user, products, redeem }) {
   return {
     products: products,
     user: user,
+    redeem: redeem,
   }
 }
 
