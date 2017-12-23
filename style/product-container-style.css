@@ -262,7 +262,7 @@ h1 {
   height: 42px;
   border-radius: 50px;
   background-color: #0AD4FA;
-  z-index: 20;
+  z-index: 18;
   display: flex;
   align-items: center;
   justify-content: center;
