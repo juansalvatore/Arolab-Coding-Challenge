@@ -254,6 +254,10 @@ h1 {
   color: #FFFFFF;
 }
 
+.whiteCircle {
+  background-color: white !important;
+}
+
 .blueCircle {
   position: absolute;
   right: 12px;

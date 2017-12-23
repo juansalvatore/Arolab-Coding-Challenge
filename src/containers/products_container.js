@@ -21,7 +21,18 @@ class Products extends Component {
       buttonState: 0,
       // hamburguer button state
       open: false,
+      hover: false,
     }
+  }
+
+  onHoverIn = id => {
+    console.log(id)
+    this.setState({ hover: id })
+  }
+
+  onHoverOut = id => {
+    console.log(id)
+    this.setState({ hover: false })
   }
 
   displayProducts = () => {
@@ -30,11 +41,24 @@ class Products extends Component {
     return _.map(this.state.products, product => {
       return (
         <div key={product._id}>
-          <div id={product._id} className="productContainer">
+          <div
+            id={product._id}
+            className="productContainer"
+            onMouseEnter={() => this.onHoverIn(product._id)}
+            onMouseLeave={() => this.onHoverOut(product._id)}
+          >
             {!(user.points < product.cost) ? (
               <div>
-                <div className="blueCircle">
-                  <BlueIcon />
+                <div
+                  className={
+                    this.state.hover == product._id
+                      ? 'blueCircle whiteCircle'
+                      : 'blueCircle'
+                  }
+                >
+                  <BlueIcon
+                    fill={this.state.hover == product._id ? '#0AD4FA' : 'white'}
+                  />
                 </div>
                 <div className="blueSection">
                   <div className="textAndIconContainer">
@@ -82,8 +106,6 @@ class Products extends Component {
       )
     })
   }
-
-  redeem = () => {}
 
   mostRecent = () => {
     this.props.fetchProducts()

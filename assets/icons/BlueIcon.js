@@ -23,7 +23,7 @@ export default class BlueIcon extends Component {
             id="carritoColor"
             transform="translate(-666.000000, -1295.000000)"
             fill-rule="nonzero"
-            fill="white"
+            fill={this.props.fill}
           >
             <g id="products" transform="translate(132.000000, 660.000000)">
               <g id="line-3" transform="translate(0.000000, 612.000000)">
