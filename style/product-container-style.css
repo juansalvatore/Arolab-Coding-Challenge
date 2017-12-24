@@ -520,6 +520,18 @@ li:last-child {
   margin-bottom: 0;
 }
 
+.pagination {
+  position: absolute;
+  top: 556px;
+  right: 52px;
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination li:last-child {
+  margin-left: 12px;
+}
+
 @media (max-width: 1135px) {
   .productsDisplayBox {
     max-width: 880px;

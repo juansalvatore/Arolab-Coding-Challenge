@@ -8,13 +8,16 @@ import { fetchProducts, redeemNow, addPoints } from '../actions/index'
 
 import BlueIcon from '../../assets/icons/BlueIcon.js'
 
+// test pagination
+import Pagination from './Pagination'
+
 class Products extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       user: {},
-      products: {},
+      products: [],
       // 0 if most recent is clicked
       // 1 if lowest price is clicked
       // 2 if highest price is clicked
@@ -24,7 +27,12 @@ class Products extends Component {
       hover: false,
       // reload after redeem
       redeem: 0,
+      pageOfItems: [],
     }
+  }
+  onChangePage = pageOfItems => {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems })
   }
 
   onHoverIn = id => {
@@ -37,8 +45,7 @@ class Products extends Component {
 
   displayProducts = () => {
     const user = this.props.user
-
-    return _.map(this.state.products, product => {
+    return _.map(this.state.pageOfItems, product => {
       return (
         <div key={product._id}>
           <div
@@ -142,16 +149,18 @@ class Products extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const obj = { message: "You've redeem the product successfully" }
+    // store products in state
     this.setState({ products: nextProps.products })
+    // order buttons logic
     this.state.buttonState == 0 ? '' : ''
     this.state.buttonState == 1 ? this.lowestToHighest() : ''
     this.state.buttonState == 2 ? this.highestToLowest() : ''
+
     this.setState({ redeem: nextProps.redeem.length })
-    console.log(
-      'did message come?',
-      nextProps.redeem.length > this.state.redeem
-    )
+    // console.log(
+    //   'did message come?',
+    //   nextProps.redeem.length > this.state.redeem
+    // )
     nextProps.redeem.length > this.state.redeem ? this.reload() : null
   }
 
@@ -278,6 +287,10 @@ class Products extends Component {
 
         <div className="productsCenter">
           <div className="productsDisplayBox">{this.displayProducts()}</div>
+          <Pagination
+            items={this.state.products}
+            onChangePage={this.onChangePage}
+          />
         </div>
       </div>
     )
