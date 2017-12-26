@@ -261,20 +261,6 @@ class Products extends Component {
                 <span>Highest price</span>
               </a>
             </div>
-            {/* <a
-              href="#!"
-              className="addPoints"
-              onClick={() => {
-                const app = this
-                setTimeout(function() {
-                  app.props.fetchProducts()
-                  app.props.fetchUser()
-                }, 500)
-                this.props.addPoints()
-              }}
-            >
-              ADD POINTS
-            </a> */}
 
             <div className="buttonBottonDivisior buttonBottonDivisiorTop" />
           </div>
@@ -290,6 +276,20 @@ class Products extends Component {
                 items={this.state.products}
                 onChangePage={this.onChangePage}
               />
+              <a
+                href="#!"
+                className="addPoints"
+                onClick={() => {
+                  const app = this
+                  setTimeout(function() {
+                    app.props.fetchProducts()
+                    app.props.fetchUser()
+                  }, 500)
+                  this.props.addPoints()
+                }}
+              >
+                ADD POINTS
+              </a>
             </div>
             <div className="buttonBottonDivisior marginBottom" />
           </div>

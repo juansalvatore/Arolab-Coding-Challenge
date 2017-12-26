@@ -91,19 +91,28 @@ h1 {
 }
 
 .titleContainer {
-  position: absolute;
+  display: flex;
+  justify-content: center;
   bottom: 48px;
   width: 100%;
 }
 
+.electronicsContainer {
+  width: 1216px;
+  position: relative;
+  top: -165px;
+}
+
 h1 {
+  transition: all ease-in-out 200ms;
   position: relative;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 64px;
   color: rgba(255, 255, 255, 0.9);
   bottom: 0px;
-  margin-left: 132px;
+  margin-left: 10px;
   font-weight: 700;
+  z-index: 100;
 }
 
 .buttonsContainer {
@@ -383,6 +392,23 @@ h1 {
   top: 1300px;
 }
 
+.addPoints {
+  background: #ededed;
+  border-radius: 100px;
+  width: 122px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #a3a3a3;
+  letter-spacing: -0.15px;
+  line-height: 38px;
+  text-align: left;
+  transition: all ease-in-out 200ms;
+}
+
 .hamburguerButton {
   display: none;
 }
@@ -595,9 +621,6 @@ li:last-child {
   .highestPrice {
     display: none;
   }
-  .addPoints {
-    display: none;
-  }
   .sortBy {
     display: none;
   }
@@ -645,5 +668,8 @@ li:last-child {
   }
   .aerolab {
     margin-left: -25px;
+  }
+  .addPoints {
+    display: none;
   }
 }

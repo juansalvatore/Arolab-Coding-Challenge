@@ -47,7 +47,9 @@ class TopBar extends Component {
           />
           <canvas id="canvas" />
           <div className="titleContainer">
-            <h1>Electronics</h1>
+            <div className="electronicsContainer">
+              <h1>Electronics</h1>
+            </div>
           </div>
         </div>
       </div>
