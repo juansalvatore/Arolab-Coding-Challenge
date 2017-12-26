@@ -254,7 +254,7 @@ class Products extends Component {
             >
               <span>Highest price</span>
             </a>
-            <a
+            {/* <a
               href="#!"
               className="addPoints"
               onClick={() => {
@@ -267,20 +267,8 @@ class Products extends Component {
               }}
             >
               ADD POINTS
-            </a>
+            </a> */}
 
-            {/* @if(isset($_GET['page']))
-            @if($_GET['page'] > 1)
-              <a class="leftArrow" href="/?page={{
-                $_GET['page'] - 1
-              }}"><img src="arrow-left.svg" alt="arrow left"></a>
-            @endif
-            <a class="rightArrow" href="/?page={{
-              $_GET['page'] + 1
-            }}"><img src="arrow-right.svg" alt="arrow right"></a>
-          @else
-            <a class="rightArrow" href="/?page=2"><img src="arrow-right.svg" alt="arrow right"></a>
-          @endif */}
             <div className="buttonBottonDivisior" />
           </div>
         </div>

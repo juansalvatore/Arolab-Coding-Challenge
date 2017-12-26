@@ -56,7 +56,7 @@ class Pagination extends React.Component {
     // default to first page
     currentPage = currentPage || 1
 
-    // default page size is 10
+    // default page size is 16
     pageSize = pageSize || 16
 
     // calculate total pages
@@ -89,6 +89,7 @@ class Pagination extends React.Component {
     var pages = _.range(startPage, endPage + 1)
 
     // return object with all pager properties required by the view
+
     return {
       totalItems: totalItems,
       currentPage: currentPage,
@@ -109,35 +110,35 @@ class Pagination extends React.Component {
       // don't display pager if there is only 1 page
       return null
     }
+    console.log('Pager: ', pager)
 
     return (
-      <ul className="pagination">
-        {/* @if(isset($_GET['page']))
-            @if($_GET['page'] > 1)
-              <a class="leftArrow" href="/?page={{
-                $_GET['page'] - 1
-              }}"><img src="arrow-left.svg" alt="arrow left"></a>
-            @endif
-            <a class="rightArrow" href="/?page={{
-              $_GET['page'] + 1
-            }}"><img src="arrow-right.svg" alt="arrow right"></a>
-          @else
-            <a class="rightArrow" href="/?page=2"><img src="arrow-right.svg" alt="arrow right"></a>
-          @endif */}
-        <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-          <a onClick={() => this.setPage(pager.currentPage - 1)}>
-            <img src="../../assets/icons/arrow-left.svg" alt="arrow left" />
-          </a>
-        </li>
-
-        <li
-          className={pager.currentPage === pager.totalPages ? 'disabled' : ''}
-        >
-          <a onClick={() => this.setPage(pager.currentPage + 1)}>
-            <img src="../../assets/icons/arrow-right.svg" alt="arrow left" />
-          </a>
-        </li>
-      </ul>
+      <div>
+        <span className="index">
+          {pager.currentPage == pager.endPage
+            ? pager.totalItems
+            : pager.pageSize}{' '}
+          of {pager.totalItems} products
+        </span>
+        <ul className="pagination">
+          <li className={pager.currentPage === 1 ? 'disabled' : ''}>
+            <a onClick={() => this.setPage(pager.currentPage - 1)}>
+              <img src="../../assets/icons/arrow-left.svg" alt="arrow left" />
+            </a>
+          </li>
+          <li
+            className={
+              pager.currentPage === pager.totalPages
+                ? 'disabled disabledRight'
+                : ''
+            }
+          >
+            <a onClick={() => this.setPage(pager.currentPage + 1)}>
+              <img src="../../assets/icons/arrow-right.svg" alt="arrow right" />
+            </a>
+          </li>
+        </ul>
+      </div>
     )
   }
 }
