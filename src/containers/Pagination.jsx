@@ -117,7 +117,7 @@ class Pagination extends React.Component {
         <span className="index">
           {pager.currentPage == pager.endPage
             ? pager.totalItems
-            : pager.pageSize}{' '}
+            : pager.pageSize * pager.currentPage}{' '}
           of {pager.totalItems} products
         </span>
         <ul className="pagination">

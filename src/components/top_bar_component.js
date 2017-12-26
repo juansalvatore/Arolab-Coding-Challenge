@@ -22,7 +22,11 @@ class TopBar extends Component {
       <div>
         {/* Header (NAVBAR)  */}
         <div className="header">
-          <img src="../../assets/icons/aerolab.svg" alt="aerolab" />
+          <img
+            className="aerolab"
+            src="../../assets/icons/aerolab.svg"
+            alt="aerolab"
+          />
           <div className="userInfo">
             <span className="userName">{user.name}</span>
             <div className="pointAmount">

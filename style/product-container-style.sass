@@ -110,9 +110,8 @@ h1
 .buttonsExtension
   position: relative
   display: flex
-  width: 1176px
+  width: 1216px
   justify-content: center
-
 
 .divisorBar
   background: #d9d9d9
@@ -196,10 +195,15 @@ h1
 
 .buttonBottonDivisior
   position: absolute
-  bottom: -25px
+  bottom: -75px
   height: 1px
-  width: 100%
+  width: 96.8%
   background-color: #d9d9d9
+
+.sortButtonsSection
+  position: absolute
+  display: flex
+  left: 210px
 
 // PRODUCT DISPLAY
 .productsDisplayBox
@@ -487,10 +491,10 @@ li
 // pagination
 .pagination
   position: absolute
-  top: 556px
-  right: 52px
   display: flex 
   flex-direction: row
+  right: 0
+  margin-right: 20px
 
   li:last-child
     margin-left: 12px;
@@ -508,16 +512,28 @@ li
   letter-spacing: -0.15px
   line-height: 48px
   font-family: 'Source Sans Pro', sans-serif
-  top: 556px
-  left: 52px
+  left: 0
+  margin-left: 20px
+
+// pagination bottom
+.bottom
+  top: 1920px !important
+
+.marginBottom
+  margin-bottom: 73px
+
+.paginationBottom
+  height: 70px;
 
 // media queries
 $breakpoint-one: 1135px
-$breakpoint-two: 950px
+$breakpoint-two: 974px
 $breakpoint-three: 625px
 @media (max-width: $breakpoint-one) 
   .productsDisplayBox
     max-width: 880px
+  .bottom
+    top: 2520px !important
   
 
 @media (max-width: $breakpoint-two) 
@@ -540,7 +556,15 @@ $breakpoint-three: 625px
     display: none
   .dropdownMenu
     display: flex !important
-
+  .bottom
+    top: 3120px !important
+  .topPagination
+    .pagination
+      display: none
+    .index
+      display: none
+  .buttonBottonDivisiorTop
+    top: 50px !important 
 @media (max-width: $breakpoint-three) 
   .productsDisplayBox
     position: absolute
@@ -549,4 +573,14 @@ $breakpoint-three: 625px
     display: flex
     justify-content: center
     flex-direction: column
-  
+  .bottom
+    top: 5520px !important
+  .imagenBanner
+    right: -170px
+  h1 
+    font-size: 50px
+    margin-left: 20px;
+  .userInfo
+    margin-right: -25px
+  .aerolab
+    margin-left: -25px

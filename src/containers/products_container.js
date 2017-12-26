@@ -196,6 +196,12 @@ class Products extends Component {
         </div>
         <div className="buttonsContainer">
           <div className="buttonsExtension">
+            <div className="topPagination">
+              <Pagination
+                items={this.state.products}
+                onChangePage={this.onChangePage}
+              />
+            </div>
             <div
               className={
                 this.state.open
@@ -215,45 +221,46 @@ class Products extends Component {
                 </span>
               </button>
             </div>
-            <div className="divisorBar" />
-
-            <span className="sortBy">Sort by:</span>
-            <a
-              id="mostRecent"
-              className={
-                this.state.buttonState == 0
-                  ? 'mostRecent activeButton'
-                  : 'mostRecent'
-              }
-              href="#!"
-              onClick={this.mostRecent}
-            >
-              <span>Most recent</span>
-            </a>
-            <a
-              id="lowestPrice"
-              className={
-                this.state.buttonState == 1
-                  ? 'lowestPrice activeButton'
-                  : 'lowestPrice'
-              }
-              href="#!"
-              onClick={this.lowestToHighest}
-            >
-              <span>Lowest price</span>
-            </a>
-            <a
-              id="highestPrice"
-              className={
-                this.state.buttonState == 2
-                  ? 'highestPrice activeButton'
-                  : 'highestPrice'
-              }
-              href="#!"
-              onClick={this.highestToLowest}
-            >
-              <span>Highest price</span>
-            </a>
+            <div className="sortButtonsSection">
+              <div className="divisorBar" />
+              <span className="sortBy">Sort by:</span>
+              <a
+                id="mostRecent"
+                className={
+                  this.state.buttonState == 0
+                    ? 'mostRecent activeButton'
+                    : 'mostRecent'
+                }
+                href="#!"
+                onClick={this.mostRecent}
+              >
+                <span>Most recent</span>
+              </a>
+              <a
+                id="lowestPrice"
+                className={
+                  this.state.buttonState == 1
+                    ? 'lowestPrice activeButton'
+                    : 'lowestPrice'
+                }
+                href="#!"
+                onClick={this.lowestToHighest}
+              >
+                <span>Lowest price</span>
+              </a>
+              <a
+                id="highestPrice"
+                className={
+                  this.state.buttonState == 2
+                    ? 'highestPrice activeButton'
+                    : 'highestPrice'
+                }
+                href="#!"
+                onClick={this.highestToLowest}
+              >
+                <span>Highest price</span>
+              </a>
+            </div>
             {/* <a
               href="#!"
               className="addPoints"
@@ -269,16 +276,23 @@ class Products extends Component {
               ADD POINTS
             </a> */}
 
-            <div className="buttonBottonDivisior" />
+            <div className="buttonBottonDivisior buttonBottonDivisiorTop" />
           </div>
         </div>
 
         <div className="productsCenter">
           <div className="productsDisplayBox">{this.displayProducts()}</div>
-          <Pagination
-            items={this.state.products}
-            onChangePage={this.onChangePage}
-          />
+        </div>
+        <div className="buttonsContainer bottom">
+          <div className="buttonsExtension">
+            <div className="paginationBottom">
+              <Pagination
+                items={this.state.products}
+                onChangePage={this.onChangePage}
+              />
+            </div>
+            <div className="buttonBottonDivisior marginBottom" />
+          </div>
         </div>
       </div>
     )

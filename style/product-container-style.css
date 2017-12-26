@@ -117,7 +117,7 @@ h1 {
 .buttonsExtension {
   position: relative;
   display: flex;
-  width: 1176px;
+  width: 1216px;
   justify-content: center;
 }
 
@@ -208,10 +208,16 @@ h1 {
 
 .buttonBottonDivisior {
   position: absolute;
-  bottom: -25px;
+  bottom: -75px;
   height: 1px;
-  width: 100%;
+  width: 96.8%;
   background-color: #d9d9d9;
+}
+
+.sortButtonsSection {
+  position: absolute;
+  display: flex;
+  left: 210px;
 }
 
 .productsDisplayBox {
@@ -522,10 +528,10 @@ li:last-child {
 
 .pagination {
   position: absolute;
-  top: 556px;
-  right: 52px;
   display: flex;
   flex-direction: row;
+  right: 0;
+  margin-right: 20px;
 }
 
 .pagination li:last-child {
@@ -547,17 +553,32 @@ li:last-child {
   letter-spacing: -0.15px;
   line-height: 48px;
   font-family: 'Source Sans Pro', sans-serif;
-  top: 556px;
-  left: 52px;
+  left: 0;
+  margin-left: 20px;
+}
+
+.bottom {
+  top: 1920px !important;
+}
+
+.marginBottom {
+  margin-bottom: 73px;
+}
+
+.paginationBottom {
+  height: 70px;
 }
 
 @media (max-width: 1135px) {
   .productsDisplayBox {
     max-width: 880px;
   }
+  .bottom {
+    top: 2520px !important;
+  }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 974px) {
   .productsDisplayBox {
     max-width: 580px;
   }
@@ -586,6 +607,18 @@ li:last-child {
   .dropdownMenu {
     display: flex !important;
   }
+  .bottom {
+    top: 3120px !important;
+  }
+  .topPagination .pagination {
+    display: none;
+  }
+  .topPagination .index {
+    display: none;
+  }
+  .buttonBottonDivisiorTop {
+    top: 50px !important;
+  }
 }
 
 @media (max-width: 625px) {
@@ -596,5 +629,21 @@ li:last-child {
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+  .bottom {
+    top: 5520px !important;
+  }
+  .imagenBanner {
+    right: -170px;
+  }
+  h1 {
+    font-size: 50px;
+    margin-left: 20px;
+  }
+  .userInfo {
+    margin-right: -25px;
+  }
+  .aerolab {
+    margin-left: -25px;
   }
 }
