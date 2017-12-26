@@ -1,12 +1,12 @@
 # Arolab's Coding Challenge...
 
-<h4 style="color:;#616161">My solution in laravel for the 2017 Aerolab Coding Challenge.</h4>
-<p style="color:#A3A3A3;"> ---> Wanna see my project live? (It may not be up to date with this repository, still working on it!!) <a href="http://aerolab.juansalvatore.com/"> --> click here <-- </a></p>
+<h4 style="color:;#616161">My solution in React and Redux for the 2017 Aerolab Coding Challenge.</h4>
+<p style="color:#A3A3A3;"> ---> Wanna see my project live? <a href="https://aerolab.herokuapp.com/"> --> click here <-- </a></p>
 <p style="color:#A3A3A3;"> ---> Wanna know more about me?<a href="http://juansalvatore.com/"> check out my website! </a></p>
 
 <img src="https://aerolab.co/criterios/images/illus-bookhero.gif" style="width:300px;">
 
-<p style="color:#A3A3A3;">- Starting point: 16/11/2017</p>
+<p style="color:#A3A3A3;">- Starting point: 21/12/2017</p>
 
 <h3>Sprint organization:</h3>
 <ul>
