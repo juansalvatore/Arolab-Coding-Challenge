@@ -17,5 +17,7 @@
   <li><strong>Sprint 5: </strong>Create pagination ✓</li>
   <li><strong>Sprint 6: </strong>Create media queries for responsive design ✓</li>
 </ul>
-<img src="https://image.ibb.co/kzgZGb/Captura_de_pantalla_2018_01_05_a_la_s_17_40_26.png" alt="Captura_de_pantalla_2018_01_05_a_la_s_17_40_26" border="0">
+</br>
+<img src="https://image.ibb.co/bLBvNG/Captura_de_pantalla_2018_01_05_a_la_s_17_42_25.png" alt="Captura_de_pantalla_2018_01_05_a_la_s_17_42_25" border="0">
+</br>
 <img src="https://cdn-images-1.medium.com/max/2000/1*W0SiGjBURAp2xYs5UcNBHg.gif" style="width:100%;">
